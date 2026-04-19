@@ -3,94 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catalogue - SAMAKF</title>
-   <link rel="stylesheet" href="Accueil.css" />
+  <title>SAMAKF - Catalogue | Fournitures de qualité</title>
   <link rel="stylesheet" href="catalogue.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">
-      <img src="image/LOGO (2) - Copie_.png" alt="Logo de l'entreprise" />
-      <div class="logo-text">
-        <span class="entreprise-nom">SAMAKF</span>
-        <small class="slogan">Tout ce qu’il faut, au prix qu’il faut.</small>
+  <!-- 🌐 Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="Accueil.html" class="logo-link">
+          <img src="image/LOGO (2) - Copie_.png" alt="Logo SAMAKF">
+        </a>
+        <div class="logo-text">
+          <span class="entreprise-nom">SAMAKF</span>
+          <small class="slogan">Tout ce qu'il faut, au prix qu'il faut.</small>
+        </div>
       </div>
+
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Accueil.html">Accueil</a></li>
+        <li><a href="catalogue.html" class="active">Catalogue</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Apropos.html">À propos</a></li>
+      </ul>
     </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="catalogue.html">Catalogue</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="Apropos.html" class="active">À propos</a></li>
-    </ul>
   </nav>
-  <main>
-    <section class="intro-catalogue">
-      <h1>Catalogue de Fournitures</h1>
-      <p>Choisissez une catégorie pour voir les produits</p>
-    </section>
-   <div class="retour-container">
-    <a href="indexl.html" class="btn-retour">← Retour à l'accueil</a>
-  </div>
-    <section class="categories">
-      <div class="categorie" onclick="voirCategorie('Cahiers')">
-        <img src="image/cahiers.jpeg" alt="Cahiers" />
-        <h3>Cahiers</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('Stylos')">
-        <img src="image/stylo.jpeg" alt="Stylos" />
-        <h3>Stylos</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('Crayons')">
-        <img src="image/crayon.jpeg" alt="Crayons" />
-        <h3>Crayons</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('Miel')">
-        <img src="image/miel.jpeg" alt="Miel" />
-        <h3>Miel</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('Ram de Papier')">
-        <img src="image/RAM de papier.jpeg" alt="Ram de Papier" />
-        <h3>Ram de Papier</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('Blanco')">
-        <img src="image/blanco.jpeg" alt="Blanco" />
-        <h3>Blanco</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('Parfum')">
-        <img src="image/Parfum.jpeg" alt="Parfum" />
-        <h3>Parfum</h3>
-      </div>
-      <div class="categorie" onclick="voirCategorie('bloc notes')">
-        <img src="image/OIP.webp" alt="Bloc notes" />
-        <h3>Bloc notes</h3>
-      </div>
-    </section>
 
-    <section id="liste-produits" class="liste-produits hidden">
-      <h2 id="titre-categorie"></h2>
-      <div id="produits-container" class="produits-container"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
-        <a href="catalogue.html"><i class="fas fa-book"></i> Catalogue</a>
-        <a href="commander.html"><i class="fas fa-shopping-cart"></i> Commander</a>
-        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      </div>
-      <div class="footer-socials">
-        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <!-- 🧭 Header Catalogue -->
+  <header class="catalogue-header">
+    <div class="container">
+      <div class="header-content">
+        <span class="header-tag">Nos produits</span>
+        <h1>Notre <span class="highlight">Catalogue</span></h1>
+        <p>Découvrez notre sélection de fournitures de qualité à prix abordables</p>
       </div>
     </div>
-    <p class="footer-bottom">&copy; 2025 SAMAKF. Tous droits réservés.</p>
+    <div class="header-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+        <path fill="#ffffff" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,96C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- 📂 Catégories -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Catégories</span>
+        <h2>Parcourez par <span class="highlight">catégorie</span></h2>
+        <p>Sélectionnez une catégorie pour découvrir nos produits</p>
+      </div>
+      <div class="categories-container" id="categoriesContainer">
+        <!-- Les catégories seront générées dynamiquement en JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 📦 Produits -->
+  <section class="produits-section" id="produitsSection" style="display: none;">
+    <div class="container">
+      <div class="produits-header">
+        <button class="btn-back" id="backToCategories">
+          <i class="fas fa-arrow-left"></i> Toutes les catégories
+        </button>
+        <h2 id="categorieTitle"></h2>
+      </div>
+      <div class="produits-container" id="produitsContainer">
+        <!-- Les produits seront générés dynamiquement -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Section CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h3>Vous ne trouvez pas ce que vous cherchez ?</h3>
+        <p>Contactez-nous directement, nous vous trouverons le produit qu'il vous faut !</p>
+        <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⚙️ Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="image/LOGO (2) - Copie_.png" alt="SAMAKF">
+            <span>SAMAKF</span>
+          </div>
+          <p>Votre partenaire de confiance pour toutes vos fournitures.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/221770557689" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="Apropos.html">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="#">Conditions générales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> +221 77 055 76 89</li>
+            <li><i class="fas fa-envelope"></i> contact@samakf.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Campus universitaire, Dakar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SAMAKF. Tous droits réservés.</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <script src="catalogue.js"></script>
 </body>
