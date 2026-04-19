@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAMAKF - Fournitures de qualité à prix abordables</title>
+  <link rel="stylesheet" href="Accueil.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ✅ Barre de navigation moderne -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="Accueil.html" class="logo-link">
+          <img src="LOGO (2) - Copie_.png" alt="Logo SAMAKF">
+        </a>
+        <div class="logo-text">
+          <span class="entreprise-nom">SAMAKF</span>
+          <small class="slogan">Tout ce qu'il faut, au prix qu'il faut.</small>
+        </div>
+      </div>
+
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Accueil.html" class="active">Accueil</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Apropos.html">À propos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ✅ Hero section avec vidéo et overlay amélioré -->
+  <header class="hero">
+    <video autoplay muted loop playsinline class="background-video" id="heroVideo">
+      <source src="Welcome (2).mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 id="animated-title">SAMAKF</h1>
+        <p class="hero-subtitle">Votre partenaire fournitures de confiance</p>
+        <div class="hero-buttons">
+          <a href="catalogue.html" class="btn btn-primary">
+            <i class="fas fa-book-open"></i> Explorer le catalogue
+          </a>
+          <a href="commander.html" class="btn btn-secondary">
+            <i class="fas fa-shopping-cart"></i> Commander maintenant
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Découvrir</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </header>
+
+  <!-- ✅ Section Avantages avec compteurs animés -->
+  <section class="section avantages reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pourquoi nous choisir ?</span>
+        <h2>Des avantages <span class="highlight">exceptionnels</span></h2>
+        <p>Une expérience d'achat pensée pour vous</p>
+      </div>
+      <div class="avantage-container">
+        <div class="avantage-bloc">
+          <div class="avantage-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          <h3>Prix imbattables</h3>
+          <p>Des fournitures à  prix raisonables pour tous les budgets, sans compromis sur la qualité.</p>
+        </div>
+        <div class="avantage-bloc">
+          <div class="avantage-icon">
+            <i class="fas fa-truck-fast"></i>
+          </div>
+          <h3>Livraison express</h3>
+          <p>Recevez vos commandes en 24h-48h, avec suivi en temps réel.</p>
+        </div>
+        <div class="avantage-bloc">
+          <div class="avantage-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Support 7j/7</h3>
+          <p>Une équipe réactive pour répondre à toutes vos questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Section "Qui sommes-nous" améliorée -->
+  <section class="section apropos reveal" id="apropos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">À propos</span>
+        <h2>Qui sommes-<span class="highlight">nous</span> ?</h2>
+      </div>
+      <div class="apropos-container">
+        <div class="apropos-image">
+          <img src="arbre SAMAKF.png" alt="Équipe SAMAKF">
+          <div class="image-badge">
+            <i class="fas fa-medal"></i> Entreprise certifiée
+          </div>
+        </div>
+        <div class="apropos-texte">
+          <h3>Une entreprise <span class="highlight">proche de vos besoins</span></h3>
+          <p>
+            <strong>SAMAKF</strong> est née d'une idée simple : rendre les fournitures accessibles à tous, 
+            sans compromis sur la qualité. Nous travaillons chaque jour pour vous proposer des produits variés, 
+            fiables et abordables — des cahiers aux matériels scolaires, mais aussi d'autres articles essentiels du quotidien.
+          </p>
+          <p>
+            Notre équipe jeune et passionnée met un point d'honneur à offrir une expérience d'achat fluide, rapide et humaine.  
+            Avec <strong>SAMAKF</strong>, vous commandez en toute confiance, où que vous soyez.
+          </p>
+          <div class="stats">
+                     
+            </div>
+                      </div>
+          <a href="Apropos.html" class="btn-en-savoir-plus">
+            En savoir plus <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ✅ Section Newsletter moderne -->
+  <section class="newsletter reveal">
+    <div class="container">
+      <div class="newsletter-content">
+        <i class="fas fa-envelope-open-text newsletter-icon"></i>
+        <h3>Ne manquez aucune offre</h3>
+        <p>Inscrivez-vous à notre newsletter pour recevoir nos promotions exclusives</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Votre adresse email" required>
+          <button type="submit">S'abonner <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer moderne -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="LOGO (2) - Copie_.png" alt="SAMAKF">
+            <span>SAMAKF</span>
+          </div>
+          <p>Votre partenaire de confiance pour toutes vos fournitures. Qualité, rapidité, satisfaction.</p>
+          <div class="footer-socials">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/221770557689" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="commander.html">Commander</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="#">Conditions générales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contactez-nous</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> +221 77 055 76 89</li>
+            <li><i class="fas fa-envelope"></i> contact@samakf.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Campus universitaire, Dakar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SAMAKF. Tous droits réservés. | Créé avec <i class="fas fa-heart"></i> pour les étudiants</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="Accueil.js"></script>
+</body>
+</html>

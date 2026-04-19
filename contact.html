@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAMAKF - Contact | Nous contacter</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 🌐 Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="Accueil.html" class="logo-link">
+          <img src="image/LOGO (2) - Copie_.png" alt="Logo SAMAKF">
+        </a>
+        <div class="logo-text">
+          <span class="entreprise-nom">SAMAKF</span>
+          <small class="slogan">Tout ce qu'il faut, au prix qu'il faut.</small>
+        </div>
+      </div>
+
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Accueil.html">Accueil</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="commander.html">Commander</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="Apropos.html">À propos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 🧭 Header -->
+  <header class="contact-header">
+    <div class="container">
+      <div class="header-content">
+        <span class="header-tag">Contactez-nous</span>
+        <h1>Parlons de vos <span class="highlight">besoins</span></h1>
+        <p>Une question, une suggestion ou une commande spéciale ? Notre équipe est à votre écoute.</p>
+      </div>
+    </div>
+    <div class="header-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+        <path fill="#f8f9fc" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,96C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- 📬 Section Contact -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Formulaire -->
+        <div class="contact-form-container">
+          <div class="section-header">
+            <span class="section-tag">Formulaire</span>
+            <h2>Envoyez-nous un <span class="highlight">message</span></h2>
+            <p>Nous vous répondrons dans les plus brefs délais</p>
+          </div>
+
+          <div class="alert-message" id="alertMessage" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <span id="alertText">Message envoyé avec succès !</span>
+          </div>
+
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom"><i class="fas fa-user"></i> Nom complet *</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+              </div>
+              <div class="form-group">
+                <label for="prenom"><i class="fas fa-user"></i> Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Adresse email *</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="telephone"><i class="fas fa-phone"></i> Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+221 77 000 00 00">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="sujet"><i class="fas fa-tag"></i> Sujet *</label>
+              <select id="sujet" name="sujet" required>
+                <option value="">Sélectionnez un sujet</option>
+                <option value="Information produit">Information produit</option>
+                <option value="Commande">Question sur une commande</option>
+                <option value="Livraison">Problème de livraison</option>
+                <option value="Partenariat">Proposition de partenariat</option>
+                <option value="Reclamation">Réclamation</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message"><i class="fas fa-comment"></i> Message *</label>
+              <textarea id="message" name="message" rows="5" placeholder="Décrivez votre demande..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <span class="checkbox-custom"></span>
+                Je souhaite recevoir la newsletter et les offres promotionnelles
+              </label>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+          </form>
+        </div>
+
+        <!-- Informations de contact -->
+        <div class="contact-info-container">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Notre adresse</h3>
+            <p>Campus universitaire<br>Dakar, Sénégal</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Téléphone</h3>
+            <p><a href="tel:+221770557689">+221 77 055 76 89</a></p>
+            <p><a href="tel:+221781234567">+221 78 123 45 67</a></p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p><a href="mailto:contact@samakf.com">contact@samakf.com</a></p>
+            <p><a href="mailto:support@samakf.com">support@samakf.com</a></p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Horaires</h3>
+            <p>Lundi - Vendredi: 9h - 18h<br>Samedi: 10h - 14h</p>
+          </div>
+
+          <div class="social-card">
+            <h3>Suivez-nous</h3>
+            <div class="social-links">
+              <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://wa.me/221770557689" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🗺️ Section Carte -->
+  <section class="map-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nous trouver</span>
+        <h2>Où nous <span class="highlight">situer</span> ?</h2>
+      </div>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.694437924187!2d-17.456504!3d14.6937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQxJzM3LjMiTiAxN8KwMjcnMjMuNCJX!5e0!3m2!1sfr!2ssn!4v1641234567890!5m2!1sfr!2ssn" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Section FAQ rapide -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-content">
+        <i class="fas fa-question-circle"></i>
+        <h3>Questions fréquentes ?</h3>
+        <p>Consultez notre FAQ pour trouver rapidement une réponse à vos questions</p>
+        <a href="#" class="btn-faq">Voir la FAQ <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⚙️ Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="image/LOGO (2) - Copie_.png" alt="SAMAKF">
+            <span>SAMAKF</span>
+          </div>
+          <p>Votre partenaire de confiance pour toutes vos fournitures.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/221770557689" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="commander.html">Commander</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="#">Conditions générales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> +221 77 055 76 89</li>
+            <li><i class="fas fa-envelope"></i> contact@samakf.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Campus universitaire, Dakar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SAMAKF. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="contact.js"></script>
+</body>
+</html>

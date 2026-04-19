@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAMAKF - Commander | Passez votre commande</title>
+  <link rel="stylesheet" href="commander.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 🌐 Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="Accueil.html" class="logo-link">
+          <img src="image/LOGO (2) - Copie_.png" alt="Logo SAMAKF">
+        </a>
+        <div class="logo-text">
+          <span class="entreprise-nom">SAMAKF</span>
+          <small class="slogan">Tout ce qu'il faut, au prix qu'il faut.</small>
+        </div>
+      </div>
+
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Accueil.html">Accueil</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="commander.html" class="active">Commander</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Apropos.html">À propos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 🧭 Header -->
+  <header class="commande-header">
+    <div class="container">
+      <div class="header-content">
+        <span class="header-tag">Passer commande</span>
+        <h1>Commander vos <span class="highlight">fournitures</span></h1>
+        <p>Remplissez le formulaire ci-dessous pour passer votre commande</p>
+      </div>
+    </div>
+    <div class="header-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+        <path fill="#f8f9fc" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,96C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- 📦 Produit sélectionné -->
+  <section class="produit-selection" id="produitSelection" style="display: none;">
+    <div class="container">
+      <div class="selection-card">
+        <div class="selection-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="selection-info">
+          <h3>Produit sélectionné</h3>
+          <p id="produitNom">-</p>
+          <span id="produitPrix" class="prix"></span>
+        </div>
+        <button class="btn-clear" id="clearProduct">
+          <i class="fas fa-times"></i> Changer
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📝 Formulaire de commande -->
+  <section class="commande-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Formulaire</span>
+        <h2>Informations de <span class="highlight">commande</span></h2>
+        <p>Veuillez remplir tous les champs ci-dessous</p>
+      </div>
+
+      <div class="form-container">
+        <form id="commandeForm" class="commande-form">
+          <!-- Message de confirmation -->
+          <div class="alert-message" id="alertMessage" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <span id="alertText">Commande envoyée avec succès !</span>
+          </div>
+
+          <!-- Section produit -->
+          <div class="form-group">
+            <label for="produit"><i class="fas fa-box"></i> Produit *</label>
+            <input type="text" id="produit" name="produit" placeholder="Ex: Cahier 400 pages" required>
+            <small class="form-hint">Le produit sélectionné apparaîtra automatiquement si vous venez du catalogue</small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quantite"><i class="fas fa-hashtag"></i> Quantité *</label>
+              <input type="number" id="quantite" name="quantite" min="1" value="1" required>
+            </div>
+            <div class="form-group">
+              <label for="prix"><i class="fas fa-money-bill-wave"></i> Prix unitaire</label>
+              <input type="text" id="prix" name="prix" placeholder="Ex: 2500 FCFA" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="total"><i class="fas fa-calculator"></i> Total estimé</label>
+            <input type="text" id="total" name="total" readonly>
+          </div>
+
+          <!-- Section client -->
+          <div class="form-section-title">
+            <i class="fas fa-user"></i> Informations personnelles
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom"><i class="fas fa-user"></i> Nom complet *</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telephone"><i class="fas fa-phone"></i> Téléphone *</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="+221 77 000 00 00" required>
+            </div>
+            <div class="form-group">
+              <label for="localite"><i class="fas fa-map-marker-alt"></i> Position *</label>
+              <select id="localite" name="localite" required>
+                <option value="">Sélectionnez votre Position</option>
+                <option value="Campus social">Campus social</option>
+                <option value="Campus pédagogique">Campus pédagogique</option>
+                <option value="Résidence universitaire">Hors Campus</option>
+                <option value="Autre">Autre (précisez ci-dessous)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" id="autreLocaliteGroup" style="display: none;">
+            <label for="autreLocalite"><i class="fas fa-pen"></i> Précisez votre localité</label>
+            <input type="text" id="autreLocalite" name="autreLocalite" placeholder="Adresse précise">
+          </div>
+
+          <div class="form-group">
+            <label for="instructions"><i class="fas fa-comment"></i> Informations supplémentaires</label>
+            <textarea id="instructions" name="instructions" rows="3" placeholder="Veuillez precisez votre position exacte pour la livraison..."></textarea>
+          </div>
+
+          <!-- Section paiement -->
+          <div class="form-section-title">
+            <i class="fas fa-credit-card"></i> Mode de paiement
+          </div>
+
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="paiement" value="Orange Money" checked>
+              <span class="radio-custom"></span>
+              <div class="radio-content">
+                <strong>Orange Money</strong>
+                <small>Paiement mobile</small>
+              </div>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="paiement" value="Wave">
+              <span class="radio-custom"></span>
+              <div class="radio-content">
+                <strong>Wave</strong>
+                <small>Paiement mobile</small>
+              </div>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="paiement" value="Espèces à la livraison">
+              <span class="radio-custom"></span>
+              <div class="radio-content">
+                <strong>Espèces à la livraison</strong>
+                <small>Payez à la réception</small>
+              </div>
+            </label>
+          </div>
+
+          <!-- Boutons -->
+          <div class="form-buttons">
+            <button type="button" class="btn-cancel" onclick="window.location.href='catalogue.html'">
+              <i class="fas fa-arrow-left"></i> Retour au catalogue
+            </button>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Confirmer la commande
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Section contact rapide -->
+  <section class="contact-rapide">
+    <div class="container">
+      <div class="contact-rapide-content">
+        <i class="fas fa-headset"></i>
+        <h3>Besoin d'aide ?</h3>
+        <p>Notre équipe est à votre disposition pour toute question</p>
+        <a href="https://wa.me/221770557689" target="_blank" class="btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> Nous contacter sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⚙️ Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="image/LOGO (2) - Copie_.png" alt="SAMAKF">
+            <span>SAMAKF</span>
+          </div>
+          <p>Votre partenaire de confiance pour toutes vos fournitures.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/221710433988" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="commander.html">Commander</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="#">Conditions générales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> +221 77 055 76 89</li>
+            <li><i class="fas fa-envelope"></i> contact@samakf.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Campus universitaire, Dakar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SAMAKF. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="commander.js"></script>
+</body>
+</html>
