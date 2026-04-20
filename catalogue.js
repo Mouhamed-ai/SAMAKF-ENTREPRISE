@@ -133,6 +133,7 @@ const categoryImages = {
   "Savons": "image/collagen.jpeg"
 };
 
+
 // ========== NAVIGATION ==========
 const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
@@ -230,9 +231,9 @@ function showProducts(categorie) {
         <p class="produit-stock ${isInStock ? 'en-stock' : 'rupture'}">
           <i class="fas ${isInStock ? 'fa-check-circle' : 'fa-times-circle'}"></i> ${stockText}
         </p>
-        <button class="btn-commander" ${!isInStock ? 'disabled' : `onclick="commanderProduit('${produit.nom.replace(/'/g, "\\'")}', '${produit.prix}')"`}>
-          ${isInStock ? '<i class="fas fa-shopping-cart"></i> Commander' : 'Indisponible'}
-        </button>
+        <button class="btn-commander" onclick="ajouterAuPanier('${produit.nom}', '${produit.prix}')">
+  <i class="fas fa-cart-plus"></i> Ajouter au panier
+</button>
       </div>
     `;
     
@@ -295,3 +296,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log('Page Catalogue chargée avec succès !');
+
+// Ajouter cette fonction à votre catalogue.js
+function ajouterAuPanier(nomProduit, prixProduit) {
+  const produit = {
+    nom: nomProduit,
+    prix: prixProduit
+  };
+  localStorage.setItem('produitAAjouter', JSON.stringify(produit));
+  window.location.href = 'commander.html';
+
+}

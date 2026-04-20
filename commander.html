@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SAMAKF - Commander | Passez votre commande</title>
+  <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="commander.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- 🌐 Navigation -->
+  <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="logo">
-        <a href="index.html" class="logo-link">
+        <a href="Accueil.html" class="logo-link">
           <img src="image/LOGO (2) - Copie_.png" alt="Logo SAMAKF">
         </a>
         <div class="logo-text">
@@ -22,28 +23,25 @@
           <small class="slogan">Tout ce qu'il faut, au prix qu'il faut.</small>
         </div>
       </div>
-
       <div class="nav-toggle" id="navToggle">
         <i class="fas fa-bars"></i>
       </div>
-
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Accueil.html">Accueil</a></li>
         <li><a href="catalogue.html">Catalogue</a></li>
-        <li><a href="commander.html" class="active">Commander</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="Apropos.html">À propos</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- 🧭 Header -->
+  <!-- Header -->
   <header class="commande-header">
     <div class="container">
       <div class="header-content">
         <span class="header-tag">Passer commande</span>
-        <h1>Commander vos <span class="highlight">fournitures</span></h1>
-        <p>Remplissez le formulaire ci-dessous pour passer votre commande</p>
+        <h1>Votre <span class="highlight">panier</span></h1>
+        <p>Ajoutez plusieurs produits et finalisez votre commande</p>
       </div>
     </div>
     <div class="header-wave">
@@ -53,113 +51,111 @@
     </div>
   </header>
 
-  <!-- 📦 Produit sélectionné -->
-  <section class="produit-selection" id="produitSelection" style="display: none;">
+  <!-- Section Panier -->
+  <section class="panier-section">
     <div class="container">
-      <div class="selection-card">
-        <div class="selection-icon">
+      <div class="section-header">
+        <span class="section-tag">Vos produits</span>
+        <h2>Mon <span class="highlight">panier</span></h2>
+      </div>
+      <div class="panier-container">
+        <div class="panier-vide" id="panierVide">
           <i class="fas fa-shopping-cart"></i>
+          <p>Votre panier est vide</p>
+          <a href="catalogue.html" class="btn-primary">Ajouter des produits</a>
         </div>
-        <div class="selection-info">
-          <h3>Produit sélectionné</h3>
-          <p id="produitNom">-</p>
-          <span id="produitPrix" class="prix"></span>
+        <div id="panierRempli" style="display: none;">
+          <div id="listeProduits"></div>
+          <div class="panier-resume">
+            <div class="resume-line">
+              <span>Sous-total :</span>
+              <span id="sousTotal">0 FCFA</span>
+            </div>
+            <div class="resume-line">
+              <span>Livraison :</span>
+              <span id="fraisLivraison">0 FCFA</span>
+            </div>
+            <div class="resume-line total">
+              <span><strong>Total :</strong></span>
+              <span><strong id="totalGeneral">0 FCFA</strong></span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+            <!-- Dans la section panier, remplacez les boutons par : -->
+<div class="panier-actions">
+  <button class="btn-ajout" id="btnAjoutProduit">
+    <i class="fas fa-plus-circle"></i> Ajouter un produit
+  </button>
+  <button class="btn-submit" id="btnValiderCommande">
+    <i class="fab fa-whatsapp"></i> Commander via WhatsApp
+  </button>
+</div>
+          </div>
         </div>
-        <button class="btn-clear" id="clearProduct">
-          <i class="fas fa-times"></i> Changer
-        </button>
       </div>
     </div>
   </section>
 
-  <!-- 📝 Formulaire de commande -->
+  <!-- Formulaire client -->
   <section class="commande-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Formulaire</span>
-        <h2>Informations de <span class="highlight">commande</span></h2>
-        <p>Veuillez remplir tous les champs ci-dessous</p>
+        <span class="section-tag">Informations</span>
+        <h2>Vos <span class="highlight">coordonnées</span></h2>
+        <p>Pour que nous puissions vous livrer</p>
       </div>
-
       <div class="form-container">
+        <div class="alert-message" id="alertMessage" style="display: none;">
+          <i class="fas fa-check-circle"></i>
+          <span id="alertText"></span>
+        </div>
         <form id="commandeForm" class="commande-form">
-          <!-- Message de confirmation -->
-          <div class="alert-message" id="alertMessage" style="display: none;">
-            <i class="fas fa-check-circle"></i>
-            <span id="alertText">Commande envoyée avec succès !</span>
-          </div>
-
-          <!-- Section produit -->
-          <div class="form-group">
-            <label for="produit"><i class="fas fa-box"></i> Produit *</label>
-            <input type="text" id="produit" name="produit" placeholder="Ex: Cahier 400 pages" required>
-            <small class="form-hint">Le produit sélectionné apparaîtra automatiquement si vous venez du catalogue</small>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="quantite"><i class="fas fa-hashtag"></i> Quantité *</label>
-              <input type="number" id="quantite" name="quantite" min="1" value="1" required>
-            </div>
-            <div class="form-group">
-              <label for="prix"><i class="fas fa-money-bill-wave"></i> Prix unitaire</label>
-              <input type="text" id="prix" name="prix" placeholder="Ex: 2500 FCFA" readonly>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="total"><i class="fas fa-calculator"></i> Total estimé</label>
-            <input type="text" id="total" name="total" readonly>
-          </div>
-
-          <!-- Section client -->
           <div class="form-section-title">
             <i class="fas fa-user"></i> Informations personnelles
           </div>
-
           <div class="form-row">
             <div class="form-group">
-              <label for="nom"><i class="fas fa-user"></i> Nom complet *</label>
-              <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+              <label><i class="fas fa-user"></i> Nom complet *</label>
+              <input type="text" id="nom" placeholder="Votre nom" required>
             </div>
             <div class="form-group">
-              <label for="email"><i class="fas fa-envelope"></i> Email *</label>
-              <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+              <label><i class="fas fa-user"></i> Prénom</label>
+              <input type="text" id="prenom" placeholder="Votre prénom">
             </div>
           </div>
-
           <div class="form-row">
             <div class="form-group">
-              <label for="telephone"><i class="fas fa-phone"></i> Téléphone *</label>
-              <input type="tel" id="telephone" name="telephone" placeholder="+221 77 000 00 00" required>
+              <label><i class="fas fa-envelope"></i> Email *</label>
+              <input type="email" id="email" placeholder="votre@email.com" required>
             </div>
             <div class="form-group">
-              <label for="localite"><i class="fas fa-map-marker-alt"></i> Position *</label>
-              <select id="localite" name="localite" required>
-                <option value="">Sélectionnez votre Position</option>
+              <label><i class="fas fa-phone"></i> Téléphone *</label>
+              <input type="tel" id="telephone" placeholder="76 654 61 75" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-map-marker-alt"></i> Localité *</label>
+              <select id="localite" required>
+                <option value="">Sélectionnez votre localité</option>
                 <option value="Campus social">Campus social</option>
                 <option value="Campus pédagogique">Campus pédagogique</option>
-                <option value="Résidence universitaire">Hors Campus</option>
+                <option value="Résidence universitaire">Résidence universitaire</option>
                 <option value="Autre">Autre (précisez ci-dessous)</option>
               </select>
             </div>
+            <div class="form-group" id="autreLocaliteGroup" style="display: none;">
+              <label><i class="fas fa-pen"></i> Précisez votre localité</label>
+              <input type="text" id="autreLocalite" placeholder="Adresse précise">
+            </div>
           </div>
-
-          <div class="form-group" id="autreLocaliteGroup" style="display: none;">
-            <label for="autreLocalite"><i class="fas fa-pen"></i> Précisez votre localité</label>
-            <input type="text" id="autreLocalite" name="autreLocalite" placeholder="Adresse précise">
-          </div>
-
           <div class="form-group">
-            <label for="instructions"><i class="fas fa-comment"></i> Informations supplémentaires</label>
-            <textarea id="instructions" name="instructions" rows="3" placeholder="Veuillez precisez votre position exacte pour la livraison..."></textarea>
+            <label><i class="fas fa-comment"></i> Instructions spéciales</label>
+            <textarea id="instructions" rows="3" placeholder="Informations supplémentaires..."></textarea>
           </div>
-
-          <!-- Section paiement -->
           <div class="form-section-title">
             <i class="fas fa-credit-card"></i> Mode de paiement
           </div>
-
           <div class="radio-group">
             <label class="radio-label">
               <input type="radio" name="paiement" value="Orange Money" checked>
@@ -186,36 +182,26 @@
               </div>
             </label>
           </div>
-
-          <!-- Boutons -->
-          <div class="form-buttons">
-            <button type="button" class="btn-cancel" onclick="window.location.href='catalogue.html'">
-              <i class="fas fa-arrow-left"></i> Retour au catalogue
-            </button>
-            <button type="submit" class="btn-submit">
-              <i class="fas fa-paper-plane"></i> Confirmer la commande
-            </button>
-          </div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- 📞 Section contact rapide -->
+  <!-- Contact rapide -->
   <section class="contact-rapide">
     <div class="container">
       <div class="contact-rapide-content">
         <i class="fas fa-headset"></i>
         <h3>Besoin d'aide ?</h3>
-        <p>Notre équipe est à votre disposition pour toute question</p>
+        <p>Notre équipe est à votre disposition</p>
         <a href="https://wa.me/221770557689" target="_blank" class="btn-whatsapp">
-          <i class="fab fa-whatsapp"></i> Nous contacter sur WhatsApp
+          <i class="fab fa-whatsapp"></i> Nous contacter
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ⚙️ Footer -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -229,13 +215,13 @@
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="https://wa.me/221710433988" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/221770557689" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="footer-links">
           <h4>Liens rapides</h4>
           <ul>
-            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Accueil.html">Accueil</a></li>
             <li><a href="catalogue.html">Catalogue</a></li>
             <li><a href="commander.html">Commander</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -244,15 +230,15 @@
         <div class="footer-links">
           <h4>Informations</h4>
           <ul>
-            <li><a href="#">Conditions générales</a></li>
-            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">CGV</a></li>
+            <li><a href="#">Confidentialité</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
         </div>
         <div class="footer-contact">
           <h4>Contact</h4>
           <ul>
-            <li><i class="fas fa-phone"></i> +221 77 055 76 89</li>
+            <li><i class="fas fa-phone"></i> +221 76 055 76 89</li>
             <li><i class="fas fa-envelope"></i> contact@samakf.com</li>
             <li><i class="fas fa-map-marker-alt"></i> Campus universitaire, Dakar</li>
           </ul>
@@ -264,7 +250,6 @@
     </div>
   </footer>
 
-  <!-- Back to top -->
   <button class="back-to-top" id="backToTop">
     <i class="fas fa-arrow-up"></i>
   </button>
